@@ -1,0 +1,573 @@
+/*Disable horizantal scroll */
+
+html {
+    position: relative;
+    max-width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-x: -moz-hidde-unscrollable;
+}
+
+p:hover,
+p:visited,
+p:active,
+a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none !important;
+}
+
+.explore-select {
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+.explore-select .list-group-item {
+    border-radius: 0;
+    border: none;
+}
+
+.explore-select .list-group-item.active {
+    background-color: white;
+    border-left: 3px solid var(--primary);
+}
+
+.btn-primary {
+    color: white;
+}
+
+
+/****************************************** Body *********************************************/
+
+
+/*-----------------SLIDE SHOW begin -----------------------------------*/
+
+* {
+    box-sizing: border-box
+}
+
+.mySlides {
+    display: none
+}
+
+
+/* Slideshow container */
+
+.slideshow-container {
+    background: #dff8ff;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    height: 40pc;
+    max-height: 340px;
+    overflow: hidden;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.text {
+    color: black;
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/** Slide 1 text **/
+
+.intro_text_line1 {
+    background-color: rgba(255, 165, 0, 0.45);
+    color: #fafafa;
+    font-family: Optima, sans-serif;
+    font-weight: bolder;
+    font-size: 300%;
+    margin: -19% 60% 1% 15%;
+    padding-left: 20px
+}
+
+.intro_text_line2 {
+    background-color: rgba(146, 184, 255, 0.45);
+    color: #616161;
+    font-family: Optima, sans-serif;
+    font-weight: bolder;
+    font-size: 290%;
+    margin: -2% 50% 1% 22%;
+    padding-left: 20px
+}
+
+
+/** Slide 2 text **/
+
+.dessert_text_line1 {
+    background-color: rgba(195, 255, 146, 0.85);
+    color: #d500ff;
+    font-family: Marker Felt, fantasy;
+    font-weight: bolder;
+    font-size: 300%;
+    margin: -22% 45% 1% 25%;
+    padding-left: 50px;
+}
+
+.dessert_text_line2 {
+    background-color: rgba(255, 146, 165, 0.92);
+    color: #18ff11;
+    font-family: Marker Felt, fantasy;
+    font-weight: bolder;
+    font-size: 350%;
+    margin: -1% 35% 1% 35%;
+    padding-left: 20px
+}
+
+.dessert_text_line3 {
+    color: #ff9000;
+    font-family: Impact, fantasy;
+    font-weight: bolder;
+    font-size: 1400%;
+    margin: -22% 5% 1% 67%;
+}
+
+
+/** Slide 3 Text **/
+
+.vegan_text_line1 {
+    color: #d500ff;
+    font-family: Snell Roundhand, cursive;
+    font-weight: bolder;
+    font-size: 320%;
+    margin: -22% 4% 1% 40%;
+    padding-left: 50px;
+}
+
+.vegan_text_line2 {
+    color: #d500ff;
+    font-family: Snell Roundhand, cursive;
+    font-weight: bolder;
+    font-size: 340%;
+    margin: -2.5% 4% 1% 42%;
+    padding-left: 50px;
+}
+
+.vegan_text_line3 {
+    color: #d500ff;
+    font-family: Snell Roundhand, cursive;
+    font-weight: bolder;
+    font-size: 320%;
+    margin: -2.5% 0% 1% 40%;
+    padding-left: 50px;
+}
+
+
+/** Slide 4 Text **/
+
+.meat {
+    font-family: Impact, fantasy;
+    font-weight: bolder;
+    font-size: 390%;
+}
+
+.meat_text_line1 {
+    color: white;
+    margin: -26% 0% 1% 30%;
+}
+
+.meat_text_line2 {
+    color: orange;
+    margin: -7% 0% 1% 35%;
+}
+
+.meat_text_line3 {
+    color: yellow;
+    margin: -7% 0% 1% 40%;
+}
+
+.meat_text_line4 {
+    color: white;
+    margin: -7% 0% 1% 45%;
+}
+
+.meat_text_line5 {
+    color: cornflowerblue;
+    margin: -7% 0% 1% 50%;
+}
+
+.meat_text_line6 {
+    color: white;
+    margin: -7% 0% 1% 55%;
+}
+
+
+/**  Slide 5 text **/
+
+.drinks {
+    color: #6a0eff;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 360%;
+}
+
+.drinks_text_line1 {
+    margin: -26% 0% 1% 17%;
+}
+
+.drinks_text_line2 {
+    margin: -2% 0% 1% 20%;
+}
+
+.drinks_text_line3 {
+    margin: -2% 0% 1% 23%;
+}
+
+.drinks_text_line4 {
+    margin: -2% 0% 1% 26%;
+}
+
+
+/*-----Slide Show End ----- */
+
+
+/*------------- Featured Popular Trending New Catergory bottons css start ----------*/
+
+.button_container {
+    margin-left: 9%;
+    width: 100%;
+}
+
+.quick_filter_buttons_row {
+    background-color: #3499ff;
+}
+
+.quick_filter_buttons {
+    position: center;
+    width: 17.6%;
+    background-color: #3499ff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    color: white;
+    font-size: 180%;
+    font-weight: bolder;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-transition-duration: 0.2s;
+    /* Safari */
+    transition-duration: 0.2s;
+}
+
+.quick_filter_buttons:hover {
+    color: white;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.quick_filter_buttons.active {
+    border-bottom: 3px solid yellow;
+}
+
+
+/*---------------------------filter button css end -----------------------*/
+
+
+/*-------------------------- Recipe_List CSS start --------------------*/
+
+.recipe_container {
+    margin-top: -40px;
+}
+
+.recipe_block {
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid var(--secondary);
+    height: 300px;
+    width: 300px;
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.recipe_block_view {
+    margin-left: -15px;
+    width: 350px;
+    height: 240px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid var(--secondary);
+    transition: all .5s ease;
+}
+
+.recipe_block:hover .recipe_block_view {
+    margin-left: -40px;
+    margin-top: -150px;
+    width: 400px;
+    height: 300px;
+}
+
+.recipe_block_recipe_title {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+#recipe_block_info {
+    margin-top: -20px;
+    margin-left: 10px;
+    color: #1b1e21;
+    font-weight: normal;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.star-ratings {
+    unicode-bidi: bidi-override;
+    color: #4e504e;
+    font-size: 15px;
+    height: 15px;
+    width: 50px;
+    margin-left: -2px;
+    position: relative;
+    padding-bottom: 18px;
+}
+
+.star-ratings-top {
+    color: gold;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    width: 0;
+}
+
+.star-ratings-bottom {
+    z-index: 0;
+}
+
+
+/*------------------------------ Recipe_List CSS END ------------------------------*/
+
+
+/*------------------------------ Recipe_Detail CSS Start ------------------------------*/
+
+.title_rating_description_container {
+    margin-left: 10%;
+    width: 40%;
+    border-style: none;
+}
+
+.recipe-detail {
+    padding: 50px;
+}
+
+.recipe_title {
+    text-align: center;
+}
+
+.star-rating-content-page {
+    font-size: 25px;
+    margin-bottom: 2%;
+}
+
+.user_name {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.contect_img_container {
+    border: 1px solid #c2c2c2;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.contect_img_container:hover {
+    border-radius: 25%;
+    transition: 1s;
+}
+
+.contect_img_container img {
+    padding: 9%;
+    display: block;
+    margin-top: 7%;
+    width: 170%;
+    transform: translate(-25%, -15%);
+}
+
+.recipe_quick_info_container {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: rgba(253, 126, 20, 0.85);
+    border-top: 1px solid #c2c2c2;
+    border-bottom: 1px solid #c2c2c2;
+    max-height: 120px;
+}
+
+.recipe_quick_info {
+    text-align: center;
+    font-family: Chalkduster, fantasy;
+    color: white;
+    width: 25%;
+    border-right: 1px solid rgb(255, 255, 255);
+}
+
+.quick_info_text_bottom {
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.quick_info_text {
+    font-size: 35px;
+    margin-bottom: -2%;
+}
+
+.recipe-detail {
+    margin-bottom: 5%;
+}
+
+#description {
+    padding-top: 30px;
+    font-size: 18px;
+}
+
+#recipename {
+    padding: 40px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.hr {
+    position: center;
+    margin-top: -15px;
+    width: 96%;
+    border: 0.5px solid rgba(128, 128, 128, 0.51);
+}
+
+.recipe_info_section_headers {
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 30px;
+    color: #5b5b5b;
+    padding-top: 15px;
+    padding-left: 40px;
+    padding-bottom: -10px;
+}
+
+.ingredient_direction_section_container {
+    /*min-height: 300px;*/
+    padding: 0 40px;
+    margin-bottom: 100px;
+}
+
+.review_container {
+    width: 50%;
+    padding-left: 40px;
+}
+
+
+/*------------------------------ Recipe_Detail CSS END ------------------------------*/
+
+
+/*------------------------------ User Profile CSS BEGIN ------------------------------*/
+
+.user_profile_img_placeholder_sidemenu {
+    width: auto;
+    height: 150px;
+    border: 2px solid rgba(12, 84, 96, 0.4);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.default_profile_img_sidemenu {
+    margin-left: -10px;
+    width: auto;
+    height: 150px;
+}
+
+.user_profile_img_placeholder {
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(12, 84, 96, 0.4);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.default_profile_img {
+    width: 200px;
+    height: 200px;
+}
+
+.user_name_on_side_menu {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.user_recipe_section_header {
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 30px;
+    color: #5b5b5b;
+    padding-top: 15px;
+    padding-left: 40px;
+}
+
+.right_section_container {
+    width: 82%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: -20px;
+    margin-bottom: 20%;
+}
+
+.account_content_container {
+    padding: 30px 30px 0px 50px;
+    margin-bottom: 10%;
+}
+
+.hr2 {
+    position: center;
+    margin-left: 1%;
+    width: 100%;
+    border: 0.5px solid rgba(128, 128, 128, 0.51);
+}
+
+.profile_bio_container {
+    margin-left: 8%;
+    width: 750px;
+    padding: 2%;
+}
+
+
+/*------------------------------ User Profile CSS END ------------------------------*/
+
+.search-results {
+    padding: 20px 40px;
+    margin-bottom: 200px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0!important;
+    text-align: center;
+    min-height: 100px;
+    width: 100%;
+    border-top: 1px solid #c2c2c2;
+    background-color: #dfdfdf;
+    margin-top: 200px;
+    padding: 20px;
+    font-size: 11px;
+}
+
+.checked {
+    color: rgb(255, 230, 0);
+}
+
+.content-main {
+    margin-bottom: 200px;
+    padding: 50px;
+}
+
+.recipe-edit {
+    padding-top: 20px;
+    margin-bottom: 200px;
+}

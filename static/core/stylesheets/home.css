@@ -1,0 +1,104 @@
+        .card {
+            width: 350px !important;
+            margin: 10px;
+            border-radius: 18px;
+            box-shadow: 0 5px 10px black;
+        }
+        
+        img {
+            width: 100%;
+        }
+        /* Split the screen in half */
+        
+        .split {
+            height: 100%;
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        /* Control the left side */
+        
+        input[type="radio"] {
+            display: none;
+        }
+        
+        input[type="radio"]:checked+label {
+            border: 1px solid red;
+        }
+        
+        .left {
+            left: 0;
+            width: 20%;
+        }
+        /* Control the right side */
+        
+        .right {
+            right: 0;
+            width: 80%;
+            background-color: green;
+            scroll-behavior: auto;
+        }
+        /* If you want the content centered horizontally and vertically */
+        
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        /* Style the image inside the centered container, if needed */
+        
+        .centered img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        
+        .cont {
+            position: relative;
+            width: 50%;
+        }
+        
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+        
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .cont:hover .image {
+            opacity: 0.3;
+        }
+        
+        .cont:hover .middle {
+            opacity: 1;
+        }
+        
+        .t {
+            /* background-color: orange; */
+            color: black;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+        
+        .d {
+            background-color: orange;
+            color: black;
+            font-size: 16px;
+            padding: 16px 32px;
+        }

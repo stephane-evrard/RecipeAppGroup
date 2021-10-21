@@ -1,0 +1,14 @@
+{%extends 'core/base.html'%}{% load bootstrap4 %} {% load static %} {%block content%}
+<div class="container">
+
+    <div class="card" style='width: 100% !important;background: linear-gradient(45deg,rgb(60, 229, 241),#e4e14f);padding:20px;'>
+        <h1 class='text-center'>Update profile</h1>
+        <form action="{%url 'edit_profile' %}" method="post" enctype="multipart/form-data">
+            {%csrf_token%} {% bootstrap_form form%}
+            <input type="submit" class="btn btn-success btn-lg" value="update">
+        </form>
+
+    </div>
+</div>
+
+{%endblock%}

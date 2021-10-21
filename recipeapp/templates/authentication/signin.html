@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %} {%block content%}
+<div class="container-fluid " style='background: url("https://images.pexels.com/photos/326279/pexels-photo-326279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;height:600px;font-size: 20px;  background-repeat: no-repeat;color:black;
+    background-size:100% 100%;'>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="cart bod mt-5 p-3" style='width:fit-content !important;background-color:orange;height:390px; border-radius: 25px;'>
+                <h3 class='text-center mt-3 mx-5 p-0' style="font-weight:bolder;width:250px;border-radius: 25px;">Classy Recipes</h3>
+                <form method="post" action="/signin" class="mb-2">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id=" username " name="username " placeholder="Enter Your Username " Required>
+                    </div>
+                    <div class="form-group ">
+                        <label for="pass1 ">Password</label>
+                        <input type="password " class="form-control " id="pass1 " name="pass1 " placeholder="Enter Your Password " Required>
+                    </div>
+                    <h4 class='me-5 text-center text-dark' style='font-weight: bolder; color:black'> <button type="submit " class="btn btn-primary text-dark">Log In</button>
+                    </h4>
+                    <h5>Don’t have an account? <a href="signup " class=" text-dark p-2 " style="border-radius: 25px; ">Register now</a> </h5>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+
+    </div>
+</div>
+{%endblock%}

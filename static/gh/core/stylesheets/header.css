@@ -1,0 +1,125 @@
+:root{
+    --header_top_margin: 22px;
+    --header_obj_heights: 40px;
+}
+
+/******************************************** Header *********************************************/
+
+.header{
+    background-color: white;
+    margin-left: 0;
+    height: 90px;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.header-link {
+    margin-top:35px;
+}
+
+#logo{
+    /*margin-left: 20px;*/
+    margin-top: -5px;
+    padding: 10px;
+    width: 75px;
+    height: 90px;
+}
+.login_signup_buttons_container{
+    position: absolute !important;
+    right: 2%;
+}
+
+.login_signup_buttons{
+    margin-top: var(--header_top_margin);
+    height: var( --header_obj_heights);
+}
+#my_account_button{
+    color: white;
+
+}
+.searchbar_container{
+    margin-top: var(--header_top_margin);
+    /*margin-left: 2%;*/
+}
+#searchbar, .searchbar_container{
+    /*width: 600px;*/
+    height: var( --header_obj_heights);
+}
+
+.searchbar_container .input-group {
+    width: 600px;
+}
+
+.magnifyin_glass{
+    background-color: rgba(33, 32, 33, 0.29);
+    margin-left: -61px;
+    border: none;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px ;
+    width: 10%;
+    margin-top: 1px;
+    height: 38px;
+}
+.magnifyin_glass:hover{
+    background-color: rgb(104, 198, 255);
+}
+.magnifyin_glass:active{
+    background-color: rgb(29, 135, 255);
+}
+
+
+/*-------- DROP DOWN MENU START ------*/
+
+#browse_button_main_container{
+    margin-top: var(--header_top_margin);
+    margin-left: 1.5%;
+    width: 100px;
+    height: var(--header_obj_heights);
+}
+
+#browse_button_main_container .browse_button{
+    height: var(--header_obj_heights);
+}
+
+#browse_button_main_container .dropdown-menu{
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 0);
+    width: 740px;
+    margin-top: 25px;
+    border-radius: 5px;
+    border: 1px;
+
+    -webkit-transition-delay: 3s;
+    -moz-transition-delay: 3s;
+    -o-transition-delay: 3s;
+    transition-delay: 3s;: 2s;
+}
+
+#browse_button_main_container .dropdown-menu td:hover{
+    background-color: rgba(146, 184, 255, 0.09);
+    text-align: left;
+}
+
+#browse_button_main_container .dropdown-menu th{
+    background-color: rgba(255, 165, 0, 0.69);
+    border-top: 5px solid white;
+    padding: 10px;
+}
+
+#browse_button_main_container .dropdown-menu th:hover{
+    background-color: rgba(255, 165, 0, 0.79);
+}
+
+#browse_button_main_container .dropdown-menu td a {
+    display:block;
+    width:100%;
+}
+
+#browse_button_main_container .dropdown-menu th a {
+    display:block;
+    width:100%;
+}
+
+/*------- DROP DOWN MENU END ------*/
+
+/*************************************** Header END ***********************************/

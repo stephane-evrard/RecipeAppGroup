@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/bootstrap/custom/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'core/open-iconic/font/css/open-iconic-bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/stylesheets/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/stylesheets/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/stylesheets/header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/stylesheets/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/stylesheets/ing_search.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/stylesheets/recipe_submit.css' %}">
+
+</head>
+
+<body>
+
+    {% include 'home/header.html' %} {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <span class="text-muted">
+                &copy; Classy Recipe 2021<br>
+                A Group Project for Pro Dev,  2021, TM. Nancy
+            </span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="{% static 'core/bootstrap/dist/js/bootstrap.js' %}"></script>
+
+    <!-- Completed: organize into files, script in HTML is messy and difficult to maintain -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'core/scripts/browse_horizantal_scroll_disabler.js' %}"></script>
+    <script src="{% static 'core/scripts/dropdown_menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
+
+</body>
+
+</html>

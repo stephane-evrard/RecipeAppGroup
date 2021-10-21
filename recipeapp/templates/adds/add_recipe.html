@@ -1,0 +1,141 @@
+{% include 'adds/recipe_form_errors.html' %} {% load crispy_forms_tags %}
+<div class="container">
+
+    <div class="card" style='width: 100% !important;background: linear-gradient(45deg,rgb(60, 229, 241),#e4e14f);padding:10px;'>
+        <h2 class='text-center'>Add Recipe</h2>
+        <form action="{% url 'submit_recipe' %}" method="post" id="recipe_form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Recipe name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter a recipe name" value="{% if form.name.value %}{{ form.name.value }}{% endif %}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <div class="form-row">
+                            <input type="file" name="image" id="image" aria-describedby="image-help">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+
+                    <div class="form-group">
+                        <label for="prep_time">Prep time</label>
+                        <div class="form-row">
+                            <div class="col-3">
+                                <input type="number" class="form-control" name="prep_time_num" id="prep_time_num" placeholder="1">
+                            </div>
+                            <div class="col-9">
+                                {{ form.prep_time_unit }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="cook_time">Cook time</label>
+                        <div class="form-row">
+                            <div class="col-3">
+                                <input type="number" class="form-control" name="cook_time_num" id="cook_time_num" placeholder="1">
+                            </div>
+                            <div class="col-9">
+                                {{ form.cook_time_unit }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-6 ">
+
+                    <div class="form-group">
+                        <label for="servings">Servings</label>
+                        <input type="number" class="form-control" name="servings" id="servings">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="calories">Calories</label>
+                        <input type="number" class="form-control" name="calories" id="calories">
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="summary">Summary</label>
+                <textarea class="form-control" maxlength="1000" name="summary" id="summary">{% if form.summary.value %}{{ form.summary.value }}{% endif %}</textarea>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+            </div>
+            <div id="ingredients"></div>
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary form-control" id="add_ingredient">Add ingredient</button>
+            </div>
+
+            <div class="form-group">
+                <label for="directions">Directions</label>
+            </div>
+            <div id="directions"></div>
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-secondary form-control" id="add_direction">Add direction</button>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="calories">Free</label>
+                    <input type="" class="form-control" name="calories" id="calories">
+                </div>
+
+            </div>
+            <h1 class='text-center'>
+
+                <button type="submit" class="btn btn-primary">Submit</button></h1>
+        </form>
+    </div>
+</div>
+<!-- Templates used in JS -->
+<div class="form-row form-group" id="ingredient" style="display: none;">
+    <div class="col-1">
+        <button type="button" class="btn btn-primary btn-remove-recipe">
+            <span class="oi oi-x" title="Remove recipe" aria-hidden="true"></span>
+        </button>
+    </div>
+    <div class="col-1">
+        <input type="number" class="form-control" name="quantity" id="quantity">
+    </div>
+    <div class="col-10">
+        <input type="text" class="form-control" name="ing_name" id="ing_name">
+    </div>
+</div>
+
+<div class="form-row form-group" id="direction" style="display: none;">
+    <div class="col-1">
+        <button type="button" class="btn btn-primary btn-remove-dir">
+            <span class="oi oi-x" title="Remove direction" aria-hidden="true"></span>
+        </button>
+    </div>
+    <div class="col-11">
+        <input type="text" name="dir_text" id="dir_text" class="form-control">
+    </div>
+</div>

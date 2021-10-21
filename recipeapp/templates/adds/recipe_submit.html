@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %} {% block title %}Submit{% endblock %} {% load static %} {% block scripts %}
+
+<script src="{% static 'core/scripts/submit_recipe.js' %}"></script>
+{% endblock %} {% block content %}
+<div class="container recipe-submit">
+
+
+    {% include 'adds/add_recipe.html' %}
+
+</div>
+{% endblock %}

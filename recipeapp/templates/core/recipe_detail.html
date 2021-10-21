@@ -1,0 +1,80 @@
+{%extends 'core/base.html'%}{%load static%}{% load ratings %}{% load social_share %} {%block content%}
+<div class="container-fluid m-5">
+    <div class="split left">
+        <div class="centered">
+
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col">
+                        <h1>{{recipe.name}}</h1>
+                        {% if recipe.image %}
+                        <div class="circular-landscape " style="margin:10px;display:inline-block;position:relative; width:250px;height:300px;overflow:hidden;border-radius: 50%; ">
+                            <img src="{{recipe.image.url}}" alt=" " style=" width:100%; height:100%; ">
+                        </div>
+                        <div class="rates">
+
+                            {%ratings recipe%}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="split right text-center">
+        <h1>{{ recipe.name }}</h1>
+        <div class="row">
+            <div class="col-3 bg-warning">cookTime:{{ recipe.cook_time }}</div>
+            <div class="col-3 bg-danger">prepTime:{{ recipe.prep_time }}</div>
+            <div class="col-3 bg-success">serving:{{ recipe.servings }}</div>
+            <div class="col-3 bg-info">calories:{{ recipe.calories }}</div>
+
+        </div>
+
+
+
+        <div class="row m-3">
+            <div class="col-md-4" style='justify-content: center;align-items: center; display: flex;'>
+                <ul style='list-style-type: none;'>
+                    <div class="share">
+                        <button>{% post_to_facebook object_or_url "<i class='fa fa-facebook'></i>" %}</button>
+                        <button>{% send_email '{{recipe.title}}' "recipe" object_or_url "<i class='fa fa-google'></i>"  %}</button>
+                        <button>{% post_to_whatsapp object_or_url "<i class='fa fa-whatsapp'></i>"  %}</button>
+                        <button>{% post_to_twitter "New recipe" object_or_url "<i class='fa fa-twitter'></i>"  %}
+                        </button> </div>
+                    <li>{%ratings recipe%}</li>
+
+                    <a href="{%url 'fav' recipe.id%}" class='btn btn-outline-primary'>Add to favorites</a>
+                </ul>
+            </div>
+            <div class="col-md-8">
+
+                <div class="card" style='background-color:#FFFFFF;width:100% !important'>
+                    <ul class="list-group" style=' border-radius: 15px 50px 30px 5px !important; margin:5px;'>
+                        <h6 style='font-size: x-large; font-weight: bolder;'>Ingridient</h6>
+                        {% for ing in ingredients %}
+                        <li class="list-group-item ">{{ ing.quantity }} {{ ing.ingredient.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="card w-100" style='width:100% !important; margin-right: 5px !important;'>
+                    <ul class="list-group" style='border-radius: 15px 50px 30px 5px; margin:5px;'>
+                        <h6style='font-size: x-large; font-weight: bolder;'>Methods</h6>
+                            {% for dir in directions %}
+                            <li class="list-group-item ">{{ dir.text }}</li>
+                            {% endfor %}
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>{%endblock%}

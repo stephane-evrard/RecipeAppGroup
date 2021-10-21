@@ -1,0 +1,137 @@
+{% extends 'home/base.html' %} {% load static %}{% load cloudinary %}{%load ratings %} {% block content %}
+<!-- Slideshow -->
+<div class="slideshow-container">
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides">
+        <img style="width: 100%" src="{% static 'images/slideshow/intro.jpg' %}">
+        <div class="intro_text_line1 animated fadeInDown slow">A Recipe</div><br>
+        <div class="intro_text_line2 animated fadeInLeft slow">For Everyone</div>
+    </div>
+
+    <div class="mySlides">
+        <img style="width: 100%" src="{% static 'images/slideshow/dessert.jpg' %}">
+        <div class="dessert_text_line1 animated slideInRight slow">Making sweet</div><br>
+        <div class="dessert_text_line2 animated slideInLeft slow">things happen</div>
+        <div class="dessert_text_line3 animated bounceInDown slower">!</div>
+    </div>
+
+    <div class="mySlides">
+        <img style="width: 100%" src="{% static 'images/slideshow/vegan.jpg' %}">
+        <div class="vegan_text_line1 animated flipInX slow">Amazing</div><br>
+        <div class="vegan_text_line2 animated flipInX slow">Vegan</div><br>
+        <div class="vegan_text_line2 animated flipInX slow">Recipes</div>
+    </div>
+
+    <div class="mySlides">
+        <img style="width: 100%" src="{% static 'images/slideshow/meat.jpg' %}">
+        <div class="meat_text_line1 meat animated bounceInRight slower">Meat!</div><br>
+        <div class="meat_text_line2 meat animated bounceInLeft slower">Meat!</div><br>
+        <div class="meat_text_line3 meat animated bounceInRight slower">Meat!</div><br>
+        <div class="meat_text_line4 meat animated bounceInLeft slower">Meat!</div><br>
+        <div class="meat_text_line5 meat animated zoomInLeft slower">Meat!</div><br>
+        <div class="meat_text_line6 meat animated zoomInRight slower">Meat!</div><br>
+    </div>
+
+    <div class="mySlides">
+        <img style="width: 100%" src="{% static 'images/slideshow/drinks.jpg' %}">
+        <div class="drinks_text_line1 drinks animated fadeInDown slow">Drink</div>
+        <div class="drinks_text_line2 drinks animated fadeInDown slow">Recipes</div>
+        <div class="drinks_text_line3 drinks animated fadeInUp slow">For All</div>
+        <div class="drinks_text_line4 drinks animated fadeInUp slow">Occasions</div>
+    </div>
+
+</div>
+
+<!-- Side menu-->
+
+<div class="row content-main">
+
+
+    {%for recipe in recipe%}
+    <div class="card text-center cont">
+        <div class="row align-items-center ">
+            <div class="col text-center">
+                <h3 class="display-3">
+                    <a href="{%url 'viewpage' recipe.id%}"><img src="{{ recipe.image.url }}" width='300px' height='300px' alt="no image"></h3>
+                </a>
+                <div class="t d-flex justify-content-start">
+                    <div class="btn">
+                        <h6>{{recipe.name}}</h6>
+                        <h6 class='text-center'>{%ratings recipe%}
+
+                        </h6>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="d">{{recipe.country}}
+                <br/>{{recipe.created_at}}
+                <br/> {%if recipe.free == False%}
+                <h6>Upgrade version</h6>
+                {%else%}
+                <h6>Free</h6>{%endif%}
+            </div>
+        </div>
+    </div>
+
+    {%empty%}
+    <div class="container text-center">
+        <h1>NO FREE RECIPES HERE</h1>
+    </div> {%endfor%} {% for up in upgrade %}
+    <h1>Enjoy our unlimited Recipes</h1> {%empty%}
+    <div class="container m-5 p-5 " style='background-color:#00A4ccff;border: 1px solid'>
+        <h5 class="text-center ">Payments card</h5>
+        <div class="confrim text-white">Confirm payment of Ksh 100 to upgrade</div>
+
+        <form action="{%url 'lipa_na_mpesa' %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input class="form-control" name="phone" id="phone" type='number' placeholder="Input Phone number"></input>
+            </div>
+            </br>
+
+            <div class="form-group">
+                <button type="submit" class="btn  w-100">Submit</button>
+            </div>
+        </form>
+        <div class="methods text-white">NOTE:Only Mpesa is allowed</div>
+    </div>
+    {%endfor%}
+
+
+
+</div>
+
+</div>
+</div>
+
+<div class="container-fluid recipe_container ">
+    {% block main %} {% endblock %}
+</div>
+</div>
+
+<!--Slideshow JavaScript -->
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides ");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none ";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block ";
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+    }
+</script>
+
+{% endblock %}

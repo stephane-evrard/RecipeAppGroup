@@ -1,0 +1,59 @@
+{% extends 'core/base.html' %} {%load bootstrap4%}{% block title %}User | Profile{% endblock %} {% load static %} {% block content %}
+
+<div class=" container right_section_container" style='background: linear-gradient(45deg,rgb(60, 229, 241),#e4e14f);'>
+
+    <div class="user_recipe_section_header">{{ profile.user.username }}</div>
+    <hr class="hr2">
+
+    <div class="row box_in_right_section_container">
+
+        <img class="default_profile_img" src="{{profile.image.url}}" style='border-radius: 50%; width:200px; height: 200px;' alt='image'>
+
+        <div class="row">
+            <div class="col">
+                <div class="profile_bio_container">
+                    <h2>Bio</h2>
+                    <p>{{profile.bio}}</p>
+                    <a href="{%url 'edit_profile'%}">edit</a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row justify-content-center">
+            {%for recipe in recipe_list%}
+            <div class="card text-center" style='width:30% !important'>
+                <div class="row align-items-start ">
+                    <div class="col text-center">
+                        <h3 class="display-3">
+                            <a href="{%url 'viewpage' recipe.id%}"><img src="{{ recipe.image.url }}" width='300px' height='300px' alt="no image"></h3>
+                        </a>
+                        <div class="t d-flex justify-content-start">
+                            <div class="btn">
+                                <h6>{{recipe.name}}</h6>
+                                <p>
+                                    <a class='btn btn-outline-primary' href="{%url 'delete' recipe.id%}">Delete</a>
+                                    <a class='btn btn-outline-primary' href="{%url 'edit_recipe' recipe.id%}">EDIT</a>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%empty%}
+            <div class="container text-center">
+                <h1>NO RECIPES HERE</h1>
+            </div> {%endfor%}
+
+
+
+
+        </div>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

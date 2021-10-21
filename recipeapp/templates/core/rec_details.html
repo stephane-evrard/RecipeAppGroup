@@ -1,0 +1,149 @@
+{% extends 'core/base.html' %}{%load bootstrap4%}{% load cloudinary %} {% load static %}{% load social_share %} {%load ratings%}{% block title %}Recipe detail{% endblock %} {% block content %}
+
+<div class="container recipe-detail" style='background: linear-gradient(45deg,rgb(60, 229, 241),#e4e14f);'>
+
+    <!-- Recipe img and to the right of that recipe title, rating, author and summery -->
+    <div class="row">
+
+        <!-- Recipe IMG -->
+        <div class="col col-recipe-img">
+            <div class="contect_img_container">
+                {% if recipe.image %}
+                <img src="{{recipe.image.url}}" alt="Recipe image"> {% endif %}
+            </div>
+
+        </div>
+
+
+        <div class="col">
+            <!--Recipe Title -->
+            <h2>{{ recipe.name }}</h2>
+
+            <!-- Edit recipe info button. NOTE: displays only if user is logged in and the recipe belongs to that user account  -->
+
+
+            <!-- Rating Stars-->
+            <div>{%ratings recipe%}</div>
+            <!-- Recipe Author -->
+            <i class="text-muted">by {{ recipe.user.username }}</i>
+            <!--Recipe Summary -->
+            <p class="text-muted">{{ recipe.summary }}</p>
+            <p>
+                <div class="share">
+                    <button class='btn btn-info'>{% post_to_facebook object_or_url "<i class='fa fa-facebook'></i>" %}</button>
+                    <button class='btn btn-danger'>{% send_email '{{recipe.title}}' "recipe" object_or_url "<i class='fa fa-google'></i>"  %}</button>
+                    <button class='btn btn-success'>{% post_to_whatsapp object_or_url "<i class='fa fa-whatsapp'></i>"  %}</button>
+                    <button class='btn btn-info'>{% post_to_twitter "New recipe" object_or_url "<i class='fa fa-twitter'></i>"  %}
+                </button> </div>
+            </p>
+            <p>
+                <a href="{%url 'fav' recipe.id%}" id="fav" class='btn btn-outline-primary'>Add to favorites</a></p>
+
+        </div>
+    </div>
+
+    <!-- Prep Time | Cook Time | Serving | Calories -->
+
+
+    <div class="row container" style='border-radius:15px;box-shadow:0 5px 10px white;background: rgb(60, 229, 241) !important;'>
+        <div class="col">
+            <p class="quick_info_text">{{ recipe.prep_time }} </p>
+            <p class="quick_info_text_bottom">Prep</p>
+        </div>
+        <div class="col">
+            <p class="quick_info_text">{{ recipe.cook_time }}</p>
+            <p class="quick_info_text_bottom">Cook</p>
+        </div>
+        <div class="col">
+            <p class="quick_info_text">{{ recipe.servings}}
+                <p class="quick_info_text_bottom">Serving</p>
+        </div>
+        <div class="col">
+            <p class="quick_info_text">{{ recipe.calories}}
+                <p class="quick_info_text_bottom">Calories</p>
+        </div>
+
+    </div>
+    <!-- Ingredients Sections -->
+    <div class="recipe_info_section_headers ">
+        <p>Ingredients</p>
+    </div>
+
+    <hr class="hr ">
+
+    <div class="ingredient_direction_section_container" style='border-radius: 30px;background-color: azure;'>
+        <ul class="list-group" style='border-color: azure;'>
+            {% for ing in ingredients %}
+            <li class="list-group-item ">{{ ing.quantity }} {{ ing.ingredient.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Directions section -->
+    <div class="recipe_info_section_headers ">
+        <p>Directions</p>
+    </div>
+
+    <hr class="hr ">
+
+    <div class="ingredient_direction_section_container " style='border-radius: 30px;background-color: azure;'>
+        <ul class="list-group ">
+            {% for dir in directions %}
+            <li class="list-group-item ">{{ dir.text }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+
+    <hr class="hr ">
+    <div class="container mt-5">
+        <!-- Card -->
+
+    </div>
+    <!-- Review and Rate section -->
+    <div class="comments_direction_section_container ">
+        <h4 class='text-center'>comments</h4>
+
+        <div class="row">
+
+            {% for dir in comments %}
+            <div class="col-md-4">
+                <div class="card" style="width:300px">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ dir.title }}</h3>
+                        <p class="card-text">{{ dir.comment }}</p> <button class="btn btn-success btn-sm">By : {{dir.user}} </button> </div>
+                </div>
+
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <center>
+        <div class="review_container justify-content-center">
+            <h5>Leave a comment</h5>
+
+            <form action="{% url 'comment' recipe.id %}" method="post">
+                {% csrf_token %} {%bootstrap_form form%}
+
+
+
+                <div class="form-group ">
+                    <button type="submity" class="btn btn-primary ">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+</div>
+</center>
+</div>{% endblock %}
